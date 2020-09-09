@@ -1,0 +1,35 @@
+[概要]
+・MF4から抽出したトリガーイベントリスト(以下、トリガーイベントリストと言う、Excel形式)から、
+　DIAdem用イベントリストを作成する処理を行います。
+・絶対パスの指示によって、DIAdem用イベントファイルからMF4ファイル、aviファイルを紐付けます。
+
+
+[準備するもの]
+・MF4から抽出したトリガーイベントリスト
+　(以下、トリガーイベントリストと言う)
+・トリガーイベントリストと紐付くデータ(MF4、avi)が入ったフォルダー
+　(以下、データフォルダーと言う)
+
+
+[操作フロー]
+1、MakeDIAdemEventListフォルダーをデータフォルダーへ格納
+
+2、input_TriggerEventListフォルダーにトリガーイベントリストを入れる
+
+3、Trigger_configuration.ini(設定ファイル)をメモ帳で開き、各Flagに対するDIAdemの設定条件を入力してください。
+　 全部で15Flag設定可能です。
+
+　　Trigger_name　　　　　　 (Flag名　ex：shortbrake)
+　　PreTrigger_time 　　　　 (トリガー前サンプリング時間　ex：10) 
+　　PostTrigger_time  　　　 (トリガー後サンプリング時間　ex：10)
+　　ViewFormat               (DIAdemのViewフォーマット　ex：ACC3.TDV)
+　　memo1　　　　　　　　　　(メモ欄)
+　　memo2　　　　　　　　　　(メモ欄)
+　　memo3　　　　　　　　　　(メモ欄)
+　　memo4　　　　　　　　　　(メモ欄)
+　　memo5　　　　　　　　　　(メモ欄)
+
+4、MakeDIAdemEventList.pyを実行ください。
+　(Anaconda PowerShell Promptにて実施。python MakeDIAdemEventList.py)
+
+5、output_DIAdemEventListフォルダーに「年月日_時間__DIAdemEventList.csv」のファイル名でDIAdem用イベントリストが出力されます。
